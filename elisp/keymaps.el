@@ -1,3 +1,6 @@
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+(global-set-key (kbd "C-x c") (lambda () (interactive) (find-file "~/.emacs.d/init.el")))
+
 (use-package evil
   :init
   (setq evil-want-C-u-scroll t)
@@ -42,5 +45,6 @@
     "bl"  'ivy-switch-buffer
     "br"  'revert-buffer
     "be"  'eval-buffer
+    "bk"  'kill-buffer
     "bn"  'next-buffer
     "bp"  'previous-buffer))
