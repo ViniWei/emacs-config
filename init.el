@@ -1,5 +1,7 @@
 (load-file "~/.emacs.d/elisp/options.el")
 
+(winner-mode)
+
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
 			("elpa" . "https://elpa.gnu.org/packages/")))

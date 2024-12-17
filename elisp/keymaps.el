@@ -26,7 +26,9 @@
    "C-j" 'windmove-down
    "C-k" 'windmove-up
    "C-h" 'windmove-left
-   "C-l" 'windmove-right)
+   "C-l" 'windmove-right
+   "C-w u" 'winner-undo
+   "C-w f" 'delete-other-windows)
   
   (general-define-key
    :states '(motion emacs insert)
@@ -36,9 +38,9 @@
   (general-define-key
    :keymaps 'dired-mode-map
    :states 'motion
-   "l" 'dired-find-alternate-file
+   "l" 'dired-find-file
    "h" 'dired-up-directory)
- 
+
   (general-create-definer leader-key
      :prefix "SPC")
 
