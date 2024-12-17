@@ -16,8 +16,9 @@
 
 (use-package general
   :config
+
   (general-define-key
-   :states 'insert
+   :states '(insert visual)
    "C-c" 'evil-normal-state)
 
   (general-define-key
@@ -31,6 +32,12 @@
    :states '(motion emacs insert)
    "C-e" 'find-file
    "C-;" 'execute-extended-command)
+
+  (general-define-key
+   :keymaps 'dired-mode-map
+   :states 'motion
+   "l" 'dired-find-alternate-file
+   "h" 'dired-up-directory)
  
   (general-create-definer leader-key
      :prefix "SPC")
