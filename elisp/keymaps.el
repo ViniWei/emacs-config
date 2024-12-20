@@ -5,55 +5,31 @@
   :init
   (setq evil-want-C-u-scroll t)
   (setq evil-want-keybinding nil)
+  (setq evil-undo-system 'undo-redo)
+
+  (defun setup-personal-leader-key () 
+    (define-prefix-command 'my-leader-map)
+    (keymap-set evil-motion-state-map "SPC" 'my-leader-map)
+    (keymap-set evil-normal-state-map "SPC" 'my-leader-map))
+
   :config
-  (evil-mode 1))
+  (setup-personal-leader-key)
 
-(use-package evil-collection
-  :after
-  evil
-  :config
-  (evil-collection-init))
+  (evil-define-key nil my-leader-map
+    "bl" 'switch-to-buffer
+    "br" 'revert-buffer
+    "bk" 'kill-buffer)
 
-(use-package general
-  :config
+  (evil-define-key '(insert visual) 'global
+    (kbd "C-c") 'evil-normal-state)
 
-  (general-define-key
-   :states '(insert visual)
-   "C-c" 'evil-normal-state)
+  (evil-define-key '(insert visual normal motion) 'global
+    (kbd "C-e") 'find-file)
 
-  (general-define-key
-   :keymaps 'override
-   "C-j" 'windmove-down
-   "C-k" 'windmove-up
-   "C-h" 'windmove-left
-   "C-l" 'windmove-right
-   "C-w u" 'winner-undo
-   "C-w f" 'delete-other-windows)
-  
-  (general-define-key
-   :states '(motion emacs insert)
-   "C-e" 'find-file
-   "C-;" 'execute-extended-command)
+  (evil-define-key '(normal motion) dired-mode-map
+    (kbd "d") 'dired-create-directory
+    (kbd "h") 'dired-up-directory
+    (kbd "l") 'dired-find-file)
 
-  (general-define-key
-   :keymaps 'dired-mode-map
-   :states 'motion
-   "l" 'dired-find-file
-   "h" 'dired-up-directory)
-
-  (general-create-definer leader-key
-     :prefix "SPC")
-
-  (leader-key
-    :states 'normal
-    "w" 'save-buffer)
-
-  (leader-key
-    :states 'motion
-    "" nil
-    "bl"  'ivy-switch-buffer
-    "br"  'revert-buffer
-    "be"  'eval-buffer
-    "bk"  'kill-buffer
-    "bn"  'next-buffer
-    "bp"  'previous-buffer))
+  (evil-mode 1)
+  )
