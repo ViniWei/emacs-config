@@ -19,3 +19,4 @@
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
 (add-hook 'prog-mode-hook #'toggle-truncate-lines)
 (add-hook 'dired-mode-hook #'dired-hide-details-mode)
+(add-hook 'eshell-mode-hook (lambda () (setenv "TERM" "xterm-256color")))

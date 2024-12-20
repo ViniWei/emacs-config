@@ -32,6 +32,9 @@
     (evil-define-key '(insert visual) 'global
       (kbd "C-c") 'evil-normal-state)
 
+    (evil-define-key '(normal motion) 'global
+      (kbd "C-q") 'evil-visual-block)
+
 
     (evil-define-key '(insert visual normal motion) 'global
       (kbd "C-;") 'execute-extended-command
