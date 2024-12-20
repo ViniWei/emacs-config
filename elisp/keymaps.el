@@ -14,22 +14,43 @@
 
   :config
   (setup-personal-leader-key)
+  (defun setup-personal-keys ()
+    (evil-define-key nil my-leader-map
+      (kbd "w") 'save-buffer)
 
-  (evil-define-key nil my-leader-map
-    "bl" 'switch-to-buffer
-    "br" 'revert-buffer
-    "bk" 'kill-buffer)
+    (evil-define-key '(normal motion) dired-mode-map
+      (kbd "d") 'dired-create-directory
+      (kbd "h") 'dired-up-directory
+      (kbd "l") 'dired-find-file)
 
-  (evil-define-key '(insert visual) 'global
-    (kbd "C-c") 'evil-normal-state)
+    (evil-define-key nil my-leader-map
+      "be" 'eval-buffer
+      "bs" 'switch-to-buffer
+      "br" 'revert-buffer
+      "bk" 'kill-buffer)
 
-  (evil-define-key '(insert visual normal motion) 'global
-    (kbd "C-e") 'find-file)
+    (evil-define-key '(insert visual) 'global
+      (kbd "C-c") 'evil-normal-state)
 
-  (evil-define-key '(normal motion) dired-mode-map
-    (kbd "d") 'dired-create-directory
-    (kbd "h") 'dired-up-directory
-    (kbd "l") 'dired-find-file)
 
-  (evil-mode 1)
+    (evil-define-key '(insert visual normal motion) 'global
+      (kbd "C-;") 'execute-extended-command
+      (kbd "C-e") 'find-file)
+
+    (evil-define-key '(normal motion) 'global
+      (kbd "C-w r") 'winner-undo
+      (kbd "C-w f") 'delete-other-windows)
+    )
+  
+  (setup-personal-keys)
+  (evil-mode 1))
+
+(use-package evil-collection
+  :after evil
+  :config
+  (setq evil-collection-key-blacklist '("SPC"))
+  (evil-collection-init)
+  (add-hook 'evil-collection-setup-hook
+    (lambda (&rest _)
+    (setup-personal-keys)))
   )

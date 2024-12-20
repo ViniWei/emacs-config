@@ -12,6 +12,8 @@
 (setq scroll-step            1
    scroll-conservatively  101)
 
+(set-face-attribute 'default nil :height 120)
+
 ; default hooks
 (setq display-line-numbers-type 'relative) 
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
