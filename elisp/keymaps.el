@@ -27,14 +27,15 @@
       "be" 'eval-buffer
       "bs" 'switch-to-buffer
       "br" 'revert-buffer
-      "bk" 'kill-buffer)
+      "bk" 'kill-buffer
+
+      "p" project-prefix-map)
 
     (evil-define-key '(insert visual) 'global
       (kbd "C-c") 'evil-normal-state)
 
     (evil-define-key '(normal motion) 'global
       (kbd "C-q") 'evil-visual-block)
-
 
     (evil-define-key '(insert visual normal motion) 'global
       (kbd "C-;") 'execute-extended-command
@@ -44,7 +45,7 @@
       (kbd "C-w r") 'winner-undo
       (kbd "C-w f") 'delete-other-windows)
     )
-  
+
   (setup-personal-keys)
   (evil-mode 1))
 
