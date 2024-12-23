@@ -28,6 +28,8 @@
       "bs" 'switch-to-buffer
       "br" 'revert-buffer
       "bk" 'kill-buffer
+      "bp" 'previous-buffer
+      "bn" 'next-buffer
 
       "p" project-prefix-map)
 
