@@ -41,7 +41,8 @@
 
     (evil-define-key '(insert visual normal motion) 'global
       (kbd "C-;") 'execute-extended-command
-      (kbd "C-e") 'find-file)
+      (kbd "C-f") 'find-file
+      (kbd "C-e") 'dired-jump)
 
     (evil-define-key '(normal motion) 'global
       (kbd "C-w r") 'winner-undo

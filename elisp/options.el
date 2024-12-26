@@ -11,6 +11,7 @@
 
 (setq scroll-step            1
    scroll-conservatively  101)
+(setq auto-window-vscroll nil)
 
 (set-face-attribute 'default nil :height 120)
 
