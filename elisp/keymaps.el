@@ -41,6 +41,14 @@
     (evil-define-key '(normal motion) 'global
       (kbd "C-q") 'evil-visual-block)
 
+    (evil-define-key '(normal motion) 'global
+      (kbd "C-u") (lambda () (interactive) (evil-scroll-up nil) (recenter))
+      (kbd "C-d") (lambda () (interactive) (evil-scroll-down nil) (recenter)))
+
+    (evil-define-key 'normal 'global
+      (kbd "SPC o") (lambda () (interactive) (evil-open-below 1) (evil-normal-state))
+      (kbd "SPC O") (lambda () (interactive) (evil-open-above 1) (evil-normal-state))) 
+
     (evil-define-key '(insert visual normal motion) 'global
       (kbd "C-;") 'execute-extended-command
       (kbd "C-f") 'find-file
