@@ -18,6 +18,12 @@
     (evil-define-key nil my-leader-map
       (kbd "w") 'save-buffer)
 
+    (evil-define-key nil my-leader-map
+      (kbd "c!") 'shell-command
+      (kbd "c&") 'async-shell-command
+      (kbd "cs") 'shell
+      (kbd "ce") 'eshell)
+
     (evil-define-key '(normal motion) dired-mode-map
       (kbd "d") 'dired-create-directory
       (kbd "h") 'dired-up-directory
