@@ -33,6 +33,8 @@
 
       "p" project-prefix-map)
 
+    (evil-define-key '(normal motion insert emacs) 'global (kbd "C-s") 'project-find-file)
+
     (evil-define-key '(insert visual) 'global
       (kbd "C-c") 'evil-normal-state)
 

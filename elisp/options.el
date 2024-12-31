@@ -13,6 +13,11 @@
    scroll-conservatively  101)
 (setq auto-window-vscroll nil)
 
+(remove-hook 'find-file-hook 'vc-find-file-hook)
+(remove-hook 'find-file-hook 'vc-refresh-state)
+
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+
 ; default hooks
 (setq display-line-numbers-type 'relative) 
 (add-hook 'prog-mode-hook #'display-line-numbers-mode)
