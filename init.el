@@ -21,3 +21,4 @@
 (load-file "~/.emacs.d/elisp/keymaps.el")
 (load-file "~/.emacs.d/elisp/magit.el")
 (load-file "~/.emacs.d/elisp/lsp.el")
+(load-file "~/.emacs.d/elisp/perspective.el")
