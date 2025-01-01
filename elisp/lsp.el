@@ -15,9 +15,6 @@
 
 (use-package lsp-ui
   :config
-  ;(lsp-ui-sideline-mode)
-  (evil-define-key 'normal 'global
-    (kbd "K") 'lsp-ui-doc-toggle))
   (setq lsp-ui-doc-show-with-mouse nil)
   (setq lsp-ui-doc-position 'at-point)
 

@@ -18,6 +18,8 @@
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
+(setq dired-listing-switches "-alg --group-directories-first")
+
 ;Keep my folders clean
 (setq backup-directory-alist `(("." . ,(expand-file-name "tmp/backups/" user-emacs-directory))))
 
