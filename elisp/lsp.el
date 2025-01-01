@@ -18,7 +18,15 @@
   ;(lsp-ui-sideline-mode)
   (evil-define-key 'normal 'global
     (kbd "K") 'lsp-ui-doc-toggle))
+  (setq lsp-ui-doc-show-with-mouse nil)
+  (setq lsp-ui-doc-position 'at-point)
 
+  (evil-define-key nil my-leader-map
+    (kbd "k") 'lsp-ui-doc-glance
+    (kbd "K") 'lsp-ui-doc-focus-frame)
+
+  (evil-define-key '(normal) lsp-ui-doc-frame-mode-map
+    (kbd "q") 'lsp-ui-doc-hide))
 
 (use-package company
   :config
