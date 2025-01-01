@@ -77,3 +77,7 @@
     (lambda (&rest _)
     (setup-personal-keys)))
   )
+
+(use-package evil-commentary
+  :config
+  (evil-commentary-mode))

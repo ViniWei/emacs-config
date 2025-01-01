@@ -20,6 +20,8 @@
 
 (setq dired-listing-switches "-alg --group-directories-first")
 
+(setq eshell-scroll-to-bottom-on-input t)
+
 ;Keep my folders clean
 (setq backup-directory-alist `(("." . ,(expand-file-name "tmp/backups/" user-emacs-directory))))
 
