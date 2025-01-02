@@ -1,17 +1,25 @@
-(use-package zig-mode)
+(use-package flycheck
+  :config
+  (add-hook 'after-init-hook #'global-flycheck-mode)
+
+  (evil-define-key nil my-leader-map
+    (kbd "f") flycheck-command-map))
+
+(use-package zig-mode
+  :config
+  (setq zig-format-on-save nil))
 
 (use-package lsp-mode
   :init
   (setq lsp-keymap-prefix "C-l")
   (setq lsp-headerline-breadcrumb-enable nil)
   :config
-  (add-hook 'zig-mode-hook 'lsp)
 
-  (evil-define-key nil my-leader-map
-    (kbd "fP") 'flymake-show-project-diagnostics
-    (kbd "fb") 'flymake-show-buffer-diagnostics
-    (kbd "fp") 'flymake-goto-prev-error
-    (kbd "fn") 'flymake-goto-next-error))
+  (dolist (item '(zig-mode-hook js-mode-hook))
+    (add-hook item 'lsp))
+
+
+  )
 
 (use-package lsp-ui
   :config
