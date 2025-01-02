@@ -1,9 +1,10 @@
 (use-package flycheck
   :config
-  (add-hook 'after-init-hook #'global-flycheck-mode)
-
   (evil-define-key nil my-leader-map
-    (kbd "f") flycheck-command-map))
+    (kbd "f") flycheck-command-map)
+
+  (set-face-underline 'flycheck-warning nil)
+  (set-face-underline 'flycheck-info nil))
 
 (use-package dtrt-indent
   :config
@@ -21,10 +22,8 @@
   :config
 
   (dolist (item '(zig-mode-hook js-mode-hook))
-    (add-hook item 'lsp))
-
-
-  )
+    (add-hook item 'lsp)
+    (add-hook item 'flycheck-mode)))
 
 (use-package lsp-ui
   :config
