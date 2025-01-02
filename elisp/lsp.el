@@ -5,6 +5,11 @@
   (evil-define-key nil my-leader-map
     (kbd "f") flycheck-command-map))
 
+(use-package dtrt-indent
+  :config
+  (dtrt-indent-global-mode t)
+  (dtrt-indent-adapt))
+
 (use-package zig-mode
   :config
   (setq zig-format-on-save nil))

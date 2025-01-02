@@ -22,6 +22,9 @@
 
 (setq eshell-scroll-to-bottom-on-input t)
 
+(setq-default indent-tabs-mode nil
+              tab-stop-list    ())
+
 ;Keep my folders clean
 (setq backup-directory-alist `(("." . ,(expand-file-name "tmp/backups/" user-emacs-directory))))
 
