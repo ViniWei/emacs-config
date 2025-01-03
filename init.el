@@ -17,9 +17,10 @@
 (require 'use-package)
 (setq use-package-always-ensure t)
 
-(use-package exec-path-from-shell
-  :config
-  (exec-path-from-shell-initialize))
+(when (not (string-equal system-type "windows-nt"))
+  (use-package exec-path-from-shell
+    :config
+    (exec-path-from-shell-initialize)))
 
 (load-file "~/.emacs.d/elisp/completion.el")
 (load-file "~/.emacs.d/elisp/visual.el")
