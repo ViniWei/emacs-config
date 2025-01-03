@@ -25,6 +25,11 @@
 (setq-default indent-tabs-mode nil
               tab-stop-list    ())
 
+(setq find-program "C:/Users/Vinicius/scoop/apps/cygwin/current/root/bin/find.exe")
+
+(setq gc-cons-threshold 100000000)
+(setq read-process-output-max (* 1024 1024)) ;; 1mb
+
 ;Keep my folders clean
 (setq backup-directory-alist `(("." . ,(expand-file-name "tmp/backups/" user-emacs-directory))))
 

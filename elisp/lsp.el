@@ -15,13 +15,26 @@
   :config
   (setq zig-format-on-save nil))
 
+(use-package web-mode
+  :mode
+  (("\\.phtml\\'" . web-mode)
+   ("\\.html\\'" . web-mode)
+   ("\\.php\\'" . web-mode)
+   ("\\.vue\\'" . web-mode)
+   ("\\.tpl\\'" . web-mode)
+   ("\\.[agj]sp\\'" . web-mode)
+   ("\\.as[cp]x\\'" . web-mode)
+   ("\\.erb\\'" . web-mode)
+   ("\\.mustache\\'" . web-mode)
+   ("\\.djhtml\\'" . web-mode)))
+
 (use-package lsp-mode
   :init
   (setq lsp-keymap-prefix "C-l")
   (setq lsp-headerline-breadcrumb-enable nil)
   :config
 
-  (dolist (item '(zig-mode-hook js-mode-hook))
+  (dolist (item '(zig-mode-hook js-mode-hook web-mode-hook))
     (add-hook item 'lsp)
     (add-hook item 'flycheck-mode)))
 
